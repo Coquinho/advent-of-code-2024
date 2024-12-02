@@ -9,3 +9,12 @@ where
     let file = File::open(filename)?;
     Ok(io::BufReader::new(file).lines())
 }
+
+pub fn numbers_in_line(line: String) -> Vec<i32> {
+    let numbers: Vec<i32> = line
+        .split_whitespace()
+        .map(|num_str| num_str.parse::<i32>().unwrap())
+        .collect();
+
+    numbers
+}
